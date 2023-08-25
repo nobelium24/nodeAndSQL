@@ -29,13 +29,8 @@ app.use((req, res, next) => {
     next();
 });
 const initializeApp = () => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        yield (0, appModel_1.createUserTable)();
-        yield (0, appModel_1.createTodoTable)();
-    }
-    catch (error) {
-        console.log(error);
-    }
+    yield (0, appModel_1.createUserTable)();
+    yield (0, appModel_1.createTodoTable)();
 });
 initializeApp();
 app.use(errorHandlers_1.errorHandler);

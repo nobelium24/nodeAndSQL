@@ -25,14 +25,16 @@ const connection = {
     password: processes.PASSWORD,
 };
 const db = pg(connection);
-(() => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        // Test the connection by running a query
-        const result = yield db.one('SELECT NOW()');
-        console.log('Connected to the database:', result.now);
-    }
-    catch (error) {
-        console.error('Error connecting to the database:', error);
-    }
-}))();
+function testDatabaseConnection() {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const result = yield db.one('SELECT NOW()');
+            console.log('Connected to the database:', result.now);
+        }
+        catch (error) {
+            console.error('Error connecting to the database:', error);
+        }
+    });
+}
+testDatabaseConnection();
 exports.default = db;

@@ -23,12 +23,8 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 })
 
 const initializeApp = async () => {
-    try {
-        await createUserTable()
-        await createTodoTable()
-    } catch (error) {
-        console.log(error)
-    }
+    await createUserTable()
+    await createTodoTable()
 }
 initializeApp()
 
